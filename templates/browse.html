@@ -1,0 +1,171 @@
+{% extends "base0.html" %}
+
+{% block header %} 
+    		<li><a class="color6" href="http://127.0.0.1:8000/home/index2/">Home</a></li>
+				<li class="active"><a href="http://127.0.0.1:8000/home/search_book/?s=&submit=jump"><b>Browse</b></a></li>
+				<!--li><a class="color7" href="http://127.0.0.1:8000/home/book_info/">Book_info</a></li-->
+{% endblock %}
+
+{% block search %}
+ <div class="header-bottom-right">
+         <div class="search">    
+        <form action="" method="get" onsubmit="ChangeIt()">
+  			<input type="text" name="s" class="textbox" value={{query}} onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}">
+				<input type="submit" id="submit" name="submit" value="current" >
+        <input type="hidden" name= "c1" value='null' id="c1">
+        <input type="hidden" name= "c2" value='null' id="c2">
+        <input type="hidden" name= "c3" value='null' id="c3">
+        <input type="hidden" name= "c4" value='null' id="c4">
+        <input type="hidden" name= "c5" value='null' id="c5">
+        <input type="hidden" name= "c6" value='null' id="c6">
+        <input type="hidden" name= "c7" value='null' id="c7">
+        <input type="hidden" name= "c8" value='null' id="c8">
+        <input type="hidden" name= "c9" value='null' id="c9">
+        <input type="hidden" name= "c10" value='null' id="c10">
+        <input type="hidden" name= "c11" value='null' id="c11">
+        <input type="hidden" name= "c12" value='null' id="c12">
+        <input type="hidden" name= "c13" value='null' id="c13">
+        <input type="hidden" name= "c14" value='null' id="c14">
+        <input type="hidden" name= "c15" value='null' id="c15">
+        <input type="hidden" name= "c16" value='null' id="c16">
+        <input type="hidden" name= "c17" value='null' id="c17">
+        <input type="hidden" name= "c18" value='null' id="c18">
+        <input type="hidden" name= "c19" value="null" id="c19">
+        <input type="hidden" name= "c20" value='null' id="c20">
+        <input type="hidden" name= "c21" value="null" id="c21">
+        <input type="hidden" name= "c22" value='null' id="c22">
+        <input type="hidden" name= "c23" value='null' id="c23">
+        <input type="hidden" name= "c24" value="null" id="c24">
+        <input type="hidden" name= "c25" value='null' id="c25">
+        <input type="hidden" name= "c26" value="null" id="c26">
+				<div id="response"> </div>
+            <p style="color: red;">{{ message }}</p>
+        
+        </form>
+		 </div>
+	    <!--ul class="last"><li><a href="#">Books(0)</a></li></ul-->
+	  </div>
+          <script>
+          function ChangeIt() 
+          {
+            for (var i=1;i<=26;i++)
+            //var i=10;
+            {
+            if (document.getElementById('cb'+i).checked) {
+            document.getElementById('c'+i).value=document.getElementById('cb'+i).name;}
+              else {document.getElementById('c'+i).value='null';}
+            }
+          }
+      </script>
+
+{% endblock %}
+
+{% block main-left %}
+    <div class="section group">
+  	  <div class="cont span_2_of_3">
+      {% for books in books_lists %}
+        {% if forloop.first %}
+          <h2 class="head">Search Results({{count}})</h2>
+        {% endif %}
+		  <div class="top-box1">
+      {% for book in books %}
+        {% if book %}
+  		  <div class="col_1_of_3 span_1_of_3">
+			  	 <a href="http://127.0.0.1:8000/home/book_info/?i={{ book.ISBN }}">
+				 <div class="inner_content clearfix">
+					<div class="product_image">
+						<img src="../images/{{book.ISBN}}.jpg" alt=""/>
+					</div>
+                    <div class="price">
+					   <div class="cart-left">
+							<p class="title">{{ book.title }}</p>
+							<div class="price1">
+                {% ifequal key 'ISBN' %}<span class="actual">{{ book.ISBN }}</span> {% endifequal %}
+                {% ifequal key 'author' %}<span class="actual">{{ book.author }}</span> {% endifequal %}
+                {% ifequal key 'title' %}<span class="actual">{{ book.author }}</span> {% endifequal %}
+                {% ifequal key 'index' %}<span class="actual">{{ book.index }}</span> {% endifequal %}
+                {% ifequal key 'publish_date' %}<span class="actual">{{ book.publish_date }}</span> {% endifequal %}
+							</div>
+						</div>
+						<div class="clear"></div>
+					 </div>				
+                   </div>
+                   </a>
+				</div>
+         {% endif %}
+       {% endfor %}
+
+				<div class="clear"></div>
+  
+			</div>
+          {% endfor %}
+     </div>
+	 </div>
+{% endblock %} 
+
+{% block checkbox %}
+  		<div class="rsingle span_1_of_single">
+           <section  class="sky-form">
+					<h4>Catagory</h4>
+						<div class="row row1 scroll-pane">
+							<div class="col col-4">
+								<label class="checkbox"><input type="checkbox" name="Art"       id="cb1" {{check_list.0}}   ><i></i>Art</label>
+								<label class="checkbox"><input type="checkbox" name="Bussiness" id="cb2" {{check_list.1}}  onunload = "CheckIt(this, 'c2')"><i></i>Business</label>
+								<label class="checkbox"><input type="checkbox" name="Computer" id="cb3"  {{check_list.2}} onunload = "CheckIt(this, 'c3')"><i></i>Computer</label>
+								<label class="checkbox"><input type="checkbox" name="Food"      id="cb4" {{check_list.3}} onunload = "CheckIt(this, 'c4')"><i></i>Food</label>
+								<label class="checkbox"><input type="checkbox" name="Education" id="cb5" {{check_list.4}} onunload = "CheckIt(this, 'c5')"><i></i>Education</label>
+								<label class="checkbox"><input type="checkbox" name="Engineering" id="cb6" {{check_list.5}} onunload = "CheckIt(this, 'c1')"><i></i>Engineering</label>
+								<label class="checkbox"><input type="checkbox" name="Science"   id="cb7" {{check_list.6}} onunload = "CheckIt(this, 'c6')"><i></i>Science</label>
+								<label class="checkbox"><input type="checkbox" name="Math"      id="cb8" {{check_list.7}} onunload = "CheckIt(this, 'c7')"><i></i>Math</label>
+								<label class="checkbox"><input type="checkbox" name="Other"   id="cb9" {{check_list.8}} onunload = "CheckIt(this, 'c8')"><i></i>Other</label>
+							</div>
+						</div>
+		        </section>
+            <div class="clear"></div>
+		       <section  class="sky-form">
+					<h4>Publish Year</h4>
+						<div class="row row1 scroll-pane">
+							<div class="col col-4">
+								<label class="checkbox"><input type="checkbox" name="2014" id="cb10" {{check_list.9}} ><i></i>2014</label>
+								<label class="checkbox"><input type="checkbox" name="2013" id="cb11" {{check_list.10}} ><i></i>2013</label>
+								<label class="checkbox"><input type="checkbox" name="2012" id="cb12" {{check_list.11}} ><i></i>2012</label>
+								<label class="checkbox"><input type="checkbox" name="2011" id="cb13" {{check_list.12}} ><i></i>2011</label>
+								<label class="checkbox"><input type="checkbox" name="2010" id="cb14" {{check_list.13}} ><i></i>2010</label>
+								<label class="checkbox"><input type="checkbox" name="2009" id="cb15" {{check_list.14}} ><i></i>2009</label>
+								<label class="checkbox"><input type="checkbox" name="2008" id="cb16" {{check_list.15}} ><i></i>2008</label>
+								<label class="checkbox"><input type="checkbox" name="2007" id="cb17" {{check_list.16}} ><i></i>2007</label>
+								<label class="checkbox"><input type="checkbox" name="2006" id="cb18" {{check_list.17}} ><i></i>2006</label>
+								<label class="checkbox"><input type="checkbox" name="2005" id="cb19" {{check_list.18}} ><i></i>2005</label>
+								<label class="checkbox"><input type="checkbox" name="2004" id="cb20" {{check_list.19}} ><i></i>2004</label>
+								<label class="checkbox"><input type="checkbox" name="Earlier" id="cb21" {{check_list.20}} ><i></i>Earlier</label>
+							</div>
+						</div>
+		       </section>
+           <div class="clear"></div>
+		       <section  class="sky-form">
+					<h4>Order By</h4>
+						<div class="row row1 scroll-pane">
+							<div class="col col-4">
+							  <label class="checkbox"><input type="checkbox" name="title" id="cb22" {{check_list.21}}><i></i>Title</label>
+								<label class="checkbox"><input type="checkbox" name="author" id="cb23" {{check_list.22}}><i></i>Author</label>
+								<label class="checkbox"><input type="checkbox" name="ISBN" id="cb24" {{check_list.23}}><i></i>ISBN</label>
+								<label class="checkbox"><input type="checkbox" name="index" id="cb25" {{check_list.24}}><i></i>Index</label>
+								<label class="checkbox"><input type="checkbox" name="publish_date" id="cb26" {{check_list.25}}><i></i>Publish Date</label>
+						    </div>
+						</div>
+		       </section>
+		       <section  class="sky-form">
+		       </section>
+		       <script src="../js/jquery.easydropdown.js"></script>
+           <div class="clear"></div>
+		      </div>
+		       <div class="clear"></div>
+           
+      <script>
+          function CheckIt(con, ide) 
+          {
+            if (con.checked) {document.getElementById(ide).value=con.name;}
+            else {document.getElementById(ide).value='null';}
+          }
+      </script>
+{% endblock %}

@@ -1,0 +1,36 @@
+from django.conf.urls import patterns, include, url
+
+from django.contrib import admin
+from mysite.views import *
+from mysite.book_list import *
+from library import views
+import settings
+admin.autodiscover()
+
+urlpatterns = patterns('',
+    # Examples:
+    # url(r'^$', 'mysite.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT }),
+    (r'^admin/', include(admin.site.urls)),
+    (r'^hello/$', hello),
+    (r'^time/$', current_datetime),
+    (r'^time/plus/(\d{1,2})/$', hours_ahead),
+    (r'^list/$', book_list),
+    (r'^search-form/$', views.search),
+    (r'^contact/$', views.contact),
+    #(r'^home/$', views.welcome),
+    (r'^home/$', views.home),
+    (r'^home/search_book/$', views.search_book),
+    (r'^home/index2/$', views.go_index),
+    (r'^home/book_info/$', views.book_info),
+    (r'^register0/$', register),
+    (r'^home/login/$', views.login_view),
+    (r'^home/logout/$', views.logout_view),
+    (r'^home/register/$', views.register_view),
+    (r'^home/mybooks/$', views.mybooks_view),
+    #(r'^js/(?P<path>.*)$','django.views.static.serve', {'document_root':settings.STATIC_ROOT}), 
+    #(r'^css/(?P<path>.*)$','django.views.static.serve', {'document_root':settings.STATIC_ROOT}), 
+    #(r'^images/(?P<path>.*)$','django.views.static.serve', {'document_root':settings.STATIC_ROOT}),  
+    (r'^home/(?P<path>.*)$','django.views.static.serve', {'document_root':settings.STATIC_ROOT}),  
+)

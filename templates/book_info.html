@@ -1,0 +1,59 @@
+{% extends "base0.html" %}
+
+{% block header %} 
+      	<li><a class="color6" href="http://127.0.0.1:8000/home/index2/">Home</a></li>
+				<li><a class="color6" href="http://127.0.0.1:8000/home/search_book/?s=&submit=jump">Browse</a></li>
+				<li class="active"><a>BookInfo</a></li>
+{% endblock %}
+
+{% block search %}
+ <div class="header-bottom-right">
+         <div class="search">    
+          <form action="/home/search_book/" method="get">
+    		    <input type="text" name="s" class="textbox" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}">
+				    <input type="submit" value="jump" id="submit" name="submit">
+				    <div id="response"> </div>
+          </form>
+		 </div>
+	    <!--ul class="last"><li><a href="#">Books(0)</a></li></ul-->
+	  </div>
+{% endblock %}
+
+  {% block info %} 
+   	<div class="cont span_2_of_3">
+		  	<div class="grid images_3_of_2">
+						<img src="../images/{{book.ISBN}}.jpg" alt=""  />
+	            </div>
+		         <div class="desc1 span_3_of_2">
+		         	<p class="m_5">{{ book.title }}</p>
+		             <h3 class="m_3">{{ book.author }}</h3>
+		      <div class="btn_form">
+						<form action="" method="get" >
+							<input type="{{borrow_button}}" value="borrow" title="" name="borrow_info">
+							<input type="{{return_button}}" value="return " title="" name="return_info">
+              <input type="hidden" value={{ book.ISBN }} name="info">
+						</form>
+					 </div>
+				     <p class="m_text2"> </p>
+			     </div>
+			   <div class="clear"></div>	
+     <div class="toogle">
+     	<h3 class="m_3">Book Details</h3>
+     	 <p class="m_text">Catagory: {{book.catagory}}
+       <br />Index: {{book.index}}
+       <br />Inventory: {{book.inventory}}/{{book.total}}
+       <br />Price: {{book.price}} 
+       <br />Publisher: {{book.publisher}} 
+       <br />Publish Date: {{book.publish_date}} 
+       </p>
+     </div>
+     <div class="toogle">
+     	<h3 class="m_3">Description</h3>
+     	<p class="m_text">{{book.description}}</p>
+     </div>
+      </div>
+        	</div>
+			 <div class="clear"></div>
+		   </div>
+  {% endblock %}
+

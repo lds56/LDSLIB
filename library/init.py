@@ -1,0 +1,136 @@
+from library.models import Book
+
+Book.objects.create(title = 'Database System Concepts',
+	author = 'Henry F. Korth',
+	publisher = 'McGraw-Hill Science',
+	ISBN = '978-7-04-019245-24',
+	index = 'D114',
+	edition = 6,
+	catagory = 'Computer',
+	publish_date = '2010-01-27',
+	inventory = 3,
+	total = 3,
+	lend_time = 0,
+	price = '$161.17',
+	description = 'Database System Concepts by Silberschatz, Korth and Sudarshan is now in its 6th edition and is one of the cornerstone texts of database education. It presents the fundamental concepts of database management in an intuitive manner geared toward allowing students to begin working with databases as quickly as possible.The text is designed for a first course in databases at the junior/senior undergraduate level or the first year graduate level. It also contains additional material that can be used as supplements or as introductory material for an advanced course. Because the authors present concepts as intuitive descriptions, a familiarity with basic data structures, computer organization, and a high-level programming language are the only prerequisites. Important theoretical results are covered, but formal proofs are omitted. In place of proofs, figures and examples are used to suggest why a result is true.'
+)
+
+Book.objects.create(title = 'A Game of Thrones (A Song of Ice and Fire)',
+	author = 'George R. R. Martin',
+	publisher = 'Bantam',
+	ISBN = '978-0553805444',
+	index = 'A223',
+	edition = 5,
+	catagory = 'Other',
+	publish_date = '2010-10-28',
+	inventory = 3,
+	total = 3,
+	lend_time = 0,
+	price = '$30.00',
+	description = "Don't miss the thrilling sneak peek of George R. R. Martin's A Song of Ice and Fire!"
+)
+
+Book.objects.create(title = 'Every Grain of Rice: Simple Chinese Home Cooking',
+	author = 'Fuchsia Dunlop',
+	publisher = 'W. W. Norton & Company',
+	ISBN = '978-0393089042',
+	index = 'E202',
+	edition = 1,
+	catagory = 'Food',
+	publish_date = '2013-02-04',
+	inventory = 1,
+	total = 1,
+	lend_time = 0,
+	price = '$22.41',
+	description = "Try your hand at stir-fried potato slivers with chili pepper, vegetarian 'Gong Bao Chicken,' sour-and-hot mushroom soup, or, if you're ever in need of a quick fix, Fuchsia's emergency late-night noodles. Many of the recipes require few ingredients and are ridiculously easy to make. Fuchsia also includes a comprehensive introduction to the key seasonings and techniques of the Chinese kitchen. With stunning photography and clear instructions, this is an essential cookbook for everyone, beginner and connoisseur alike, eager to introduce Chinese dishes into their daily cooking repertoire. 150 color photographss"
+)
+
+Book.objects.create(title = 'Thinking in C++',
+	author = 'Bruce Eckel',
+	publisher = ' Prentice Hall',
+	ISBN = '978-0139798092',
+	index = 'T115',
+	edition = 2,
+	catagory = 'Computer',
+	publish_date = '2000-03-25',
+	inventory = 6,
+	total = 6,
+	lend_time = 0,
+	price = '$47.49',
+	description = 'In the first edition of Thinking in C++, Bruce Eckel synthesized years of C++ teaching and programming experience into a beautifully structured course in making the most of the language. It became an instant classic, winning the 1995 Software Development Jolt Cola Award for best book of the year. Now, Eckel has thoroughly rewritten Thinking in C++ to reflect the final ANSI/ISO C++ standard. Every page has been revisited and rethought, with many new examples and exercises -- all designed to help you understand C++ "down to the bare metal," so you can solve virtually any problem. Eckel starts with a detailed look at objects, showing how C++ programs can be constructed from off-the-shelf object libraries. '
+)
+
+Book.objects.create(title = 'Steal Like an Artist',
+	author = 'Austin Kleon',
+	publisher = 'Workman Publishing Company',
+	ISBN = '978-0761169253',
+	index = 'S999',
+	edition = 1,
+	catagory = 'Art',
+	publish_date = '2012-02-28',
+	inventory = 3,
+	total = 3,
+	lend_time = 0,
+	price = '$6.46',
+	description = 'When Mr. Kleon was asked to address college students in upstate New York, he shaped his speech around the ten things he wished someone had told him when he was starting out. The talk went viral, and its author dug deeper into his own ideas to create Steal Like an Artist, the book. The result is inspiring, hip, original, practical, and entertaining. And filled with new truths about creativity: Nothing is original, so embrace influence, collect ideas, and remix and re-imagine to discover your own path. Follow your interests wherever they take you. Stay smart, stay out of debt, and risk being boring the creative you will need to make room to be wild and daring in your imagination.'
+)
+
+Book.objects.create(title = 'Caculus',
+	author = 'Ron Larson',
+	publisher = 'Cengage Learning ',
+	ISBN = '978-0547167022',
+	index = 'C19',
+	edition = 9,
+	catagory = 'Math',
+	publish_date = '2009-01-16',
+	inventory = 3,
+	total = 3,
+	lend_time = 0,
+	price = '$66.46',
+	description = 'The Larson CALCULUS program has a long history of innovation in the calculus market. It has been widely praised by a generation of students and professors for its solid and effective pedagogy that addresses the needs of a broad range of teaching and learning styles and environments. Each title is just one component in a comprehensive calculus course program that carefully integrates and coordinates print, media, and technology products for successful teaching and learning.'
+)
+
+Book.objects.create(title = 'Science: The Definitive Visual Guide',
+	author = 'Robert Dinwiddie',
+	publisher = 'DK ADULT',
+	ISBN = '978-0756689018',
+	index = 'S209',
+	edition = 2,
+	catagory = 'Science',
+	publish_date = '2011-09-19',
+	inventory = 2,
+	total = 2,
+	lend_time = 0,
+	price = '$19.04',
+	description = 'Encompassing everything from ancient Greek geometry and quantum physics to the wedge and the World Wide Web, Science is a remarkable reference book that tells the story of science from earliest times to the present day now available in paperback!'
+)
+
+Book.objects.create(title = 'Architectural Glass to Resist Seismic	',
+	author = 'R.A.Behr',
+	publisher = 'Woodhead Publishing',
+	ISBN = '978-1845693695',
+	index = 'A39',
+	edition = 1,
+	catagory = 'Engineering',
+	publish_date = '2009-09-28',
+	inventory = 1,
+	total = 1,
+	lend_time = 0,
+	price = '$209.00',
+	description = 'Glass is a popular cladding material for modern buildings. The trend for steel-framed, glass-clad buildings instead of those using traditional materials such as brick and concrete has inherent problems. These include, for example, the performance of architectural glass in extreme climatic events such as windstorms and heavy snow loads and also during earthquakes. This book reviews the state-of-the-art in glass and glazing technology to resist failure due to these natural events.'
+)
+
+Book.objects.create(title = 'The Five Dysfunctions of a Team: A Leadership Fable',
+	author = 'Patrick Lencioni',
+	publisher = 'Jossey-Bass',
+	ISBN = '978-0787960759',
+	index = 'T919',
+	edition = 1,
+	catagory = 'Bussiness',
+	publish_date = '2002-03-11',
+	inventory = 4,
+	total = 4,
+	lend_time = 0,
+	price = '$14.10',
+	description = 'In The Five Dysfunctions of a Team Patrick Lencioni once again offers a leadership fable that is as enthralling and instructive as his first two best-selling books, The Five Temptations of a CEO and The Four Obsessions of an Extraordinary Executive. This time, he turns his keen intellect and storytelling power to the fascinating, complex world of teams.'
+)

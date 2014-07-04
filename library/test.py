@@ -1,0 +1,42 @@
+#from django.db import models
+from library.models import Test
+from library.models import Books
+#from django.conf import settings
+
+
+def create():
+	Test.objects.create(title = 'a',
+		author = 'Henry F. Korth3',
+		ISBN = '978-7-04-019245-23',
+		index = 'E113',
+		edition = 53,
+	)
+#settings.configure(default_settings=mysite.settings, DEBUG=True)
+def insert_item(tit, aut, pub, isb, ind, edi):
+	p = Books(title = tit,
+		author = aut,
+		publisher = pub,
+		ISBN = isb,
+		index = ind,
+		edition = edi)
+	p.save()
+
+def select_item(edi):
+	print Books.objects.filter(edition = edi)
+
+def select_item_contains(tit):
+	print Books.objects.filter(title__contains = tit)
+
+def get_one_item(tit):
+	alist = Books.objects.get(title = tit)
+	print alist
+
+def print_by_order():
+	print Books.objects.order_by('title')
+
+create()
+#get_one_item('Database System Concepts')
+#print_by_order()
+#books_list = Books.objects.all()
+#print books_list
+

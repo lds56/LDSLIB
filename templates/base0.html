@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<html>
+<head>
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/form.css" rel="stylesheet" type="text/css" media="all" />
+<link href='../css/fonts.css' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../js/jquery1.min.js"></script>
+<!-- start menu -->
+<link href="../css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="../js/megamenu.js"></script>
+<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+<!--start slider -->
+    <link rel="stylesheet" href="../css/fwslider.css" media="all">
+    <script src="../js/jquery-ui.min.js"></script>
+    <script src="../js/css3-mediaqueries.js"></script>
+    <script src="../js/fwslider.js"></script>
+<!--end slider -->
+<script src="../js/jquery.easydropdown.js"></script>
+</head>
+<body>
+     <div class="header-top">
+     <div class="wrap"> 
+			 <div class="cssmenu">
+				<ul>
+          {% if logged_in %}
+           <liclass="active">Welcome, {{user_name }}!</a></li> |
+  				<li class="active"><a href="http://127.0.0.1:8000/home/mybooks/">My books</a></li> |
+  				<li><a href="http://127.0.0.1:8000/home/logout/">Log Out</a></li>          
+          {% else %}
+					<li class="active"><a href="http://127.0.0.1:8000/home/login/">Log In</a></li> |
+					<li><a href="http://127.0.0.1:8000/home/register/">Sign Up</a></li>
+          {% endif %}
+				</ul>
+			</div>
+			<div class="clear"></div>
+ 		</div>
+	</div>
+	<div class="header-bottom">
+	    <div class="wrap">
+			<div class="header-bottom-left">
+				<div class="logo">
+					<a href="index.html"><img src="../images/logo.png"  alt=""/></a>
+				</div>
+				<div class="menu">
+	            <ul class="megamenu skyblue">
+              {% block header %} {% endblock %}
+			</ul>
+			</div>
+		</div>
+
+        {% block search %} {% endblock %}
+	
+    </div>
+     <div class="clear"></div>
+     </div>
+	<!--/div-->
+  <!-- start slider -->
+{% block slider1 %} {% endblock %}
+    <!--/slider -->
+<div class="main">
+	<div class="wrap">
+  {% block info %} {% endblock %}
+  {% block main-left %} {% endblock %}						 			    
+  {% block checkbox %} {% endblock %}
+	</div>
+	<!--/div-->
+  <div class="clear"></div>
+	</div>
+  
+{% block user %} {% endblock %}
+
+   <div class="footer">
+		<div class="footer-top">
+		</div>
+		<div class="footer-middle">
+			<div class="wrap">
+			 <div class="section group example">
+			  <div class="col_1_of_f_1 span_1_of_f_1">
+				 <div class="section group example">
+				   <div class="col_1_of_f_2 span_1_of_f_2">
+				      <h3>Information</h3>
+              <div class="company_address">  		 
+               <p>This is a test web.</p>
+               <p>Project for database lesson.</p>
+               <p>Pwered by Jango. Made by lds.</p>
+                </div>
+ 				  </div>
+				  <div class="col_1_of_f_2 span_1_of_f_2">
+          <div class="company_address">  		 
+						<h3>Address</h3>
+            <p>ZJG Campus ZJU Hangzhou China</p>
+            <p>A laptop in the Room 535 QingXi Dorm</p>
+             </div>
+				</div>
+				<div class="clear"></div>
+		      </div>
+ 			 </div>
+			 <div class="col_1_of_f_1 span_1_of_f_1">
+			   <div class="section group example">
+				 <div class="col_1_of_f_2 span_1_of_f_2">
+				    <h3>Contact me</h3>
+            <div class="company_address">  		 
+            <p>Phone: 188-6811-6556</p>
+            <p>Email: chenrui.qingqing@gmail.com</p>
+            </div>
+ 				 </div>
+				 <div class="col_1_of_f_2 span_1_of_f_2">
+				   <h3>Social</h3>
+					   <div class="social-media">
+						     <ul>
+						        <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="Google"><a href="#" target="_blank"> </a></span></li>
+						        <li><span class="simptip-position-bottom simptip-movable" data-tooltip="Linked in"><a href="#" target="_blank"> </a> </span></li>
+						        <li><span class="simptip-position-bottom simptip-movable" data-tooltip="Rss"><a href="#" target="_blank"> </a></span></li>
+						        <li><span class="simptip-position-bottom simptip-movable" data-tooltip="Facebook"><a href="#" target="_blank"> </a></span></li>
+						    </ul>
+					   </div>
+				</div>
+				<div class="clear"></div>
+		    </div>
+		   </div>
+		  <div class="clear"></div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+<div style="display:none"></div>
+</body>
+</html>

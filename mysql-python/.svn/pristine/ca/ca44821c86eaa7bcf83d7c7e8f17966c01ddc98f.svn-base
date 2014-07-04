@@ -1,0 +1,7 @@
+The current trunk of this SVN repository has been moved to a Mercurial
+repository. If you are still using the SVN trunk, you probably won't
+see any updates.
+
+For the up-to-date version:
+
+http://mysql-python.hg.sourceforge.net:8000/hgroot/mysql-python/mysql-python

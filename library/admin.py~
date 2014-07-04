@@ -1,0 +1,77 @@
+from django.contrib import admin
+#from library.models import Books
+from library.models import Book, Book_record, User_info, Books
+
+def update_inventory(queryset, k):
+	for q in queryset:
+		q.inventory = q.inventory + k
+		q.save()
+
+def update_total(queryset, k):
+	for q in queryset:
+		q.total = q.total + k
+		q.save()
+
+class BookAdmin(admin.ModelAdmin):
+	list_filter = ('catagory','publish_date',)
+	list_display = ('title', 'author', 'ISBN', 'publish_date')
+	actions = ['add_one', 'add_two', 'add_three', 'add_four', 'add_five']
+
+	def add_one(self, request, queryset):
+		update_inventory(queryset, 1)
+		update_total(queryset, 1)
+		self.message_user(request, "The information of storage has been updated successfully!")
+	add_one.short_description = "Add the storage of selected books by 1"
+
+	def add_two(self, request, queryset):
+		update_inventory(queryset, 2)
+		update_total(queryset, 2)
+		self.message_user(request, "The information of storage has been updated successfully!")
+	add_two.short_description = "Add the storage of selected books by 2"
+
+	def add_three(self, request, queryset):
+		update_inventory(queryset, 3)
+		update_total(queryset, 3)
+		self.message_user(request, "The information of storage has been updated successfully!")
+	add_three.short_description = "Add the storage of selected books by 3"
+
+	def add_four(self, request, queryset):
+		update_inventory(queryset, 4)
+		update_total(queryset, 4)
+		self.message_user(request, "The information of storage has been updated successfully!")
+	add_four.short_description = "Add the storage of selected books by 4"
+
+	def add_five(self, request, queryset):
+		update_inventory(queryset, 5)
+		update_total(queryset, 5)
+		self.message_user(request, "The information of storage has been updated successfully!")
+	add_five.short_description = "Add the storage of selected books by 5"
+
+class RecordAdmin(admin.ModelAdmin):
+	list_filter = ('return_date',)
+	list_display = ('book_title', 'book_ISBN', 'return_date')
+
+class UserAdmin(admin.ModelAdmin):
+	#list_filter = ('catagory','publish_date',)
+	list_display = ('username', 'email')
+	action = ['delete_with_check',]
+
+	def delete_with_check(self, request, queryset):
+		k = 0
+		for q in queryset:
+			if not q.mybooks.exists():
+				q.delete
+			else:
+				k = k+1
+		if k==0:
+			self.message_user(request, "Delete the information of selected users successfully!")
+		else:
+			self.message_user(request, "%s deletion failed!" %k, level = messages.ERROR)
+
+	delete_with_check.short_description = "Delete the information of selected user with checking"
+
+admin.site.register(Book, BookAdmin)
+admin.site.register(Book_record, RecordAdmin)
+admin.site.register(User_info, UserAdmin)
+#admin.site.register(Books)
+# Register your models here.

@@ -1,0 +1,53 @@
+{% extends "base0.html" %} 
+
+{% block header %} 
+        <li><a class="color6" href="http://127.0.0.1:8000/home/index2/">Home</a></li>
+				<li><a class="color6" href="http://127.0.0.1:8000/home/search_book/?s=&submit=jump"><b>Browse</b></a></li>
+				<li class="active"><a ><b>Mybooks</b></a></li>
+{% endblock %}
+
+{% block search %}
+ <div class="header-bottom-right">
+         <div class="search">    
+          <form action="/home/search_book/" method="get">
+    		<input type="text" name="s" class="textbox" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}">
+				<input type="submit" id="submit" name="submit" value="jump">
+				<div id="response"> </div>
+        </form>
+		 </div>
+	    <!--ul class="last"><li><a href="#">Books(0)</a></li></ul-->
+	  </div>
+{% endblock %}
+
+{% block main-left %} 
+    <div class="section group">
+      <div class="cont span_2_of_3">
+      <h2 class="head">Records({{count}})</h2>
+		  <div class="top-box1">
+      {% for book in books_record %}
+  		  <div class="col_1_of_3 span_1_of_3">
+			  	 <a href="http://127.0.0.1:8000/home/book_info/?i={{ book.book_ISBN }}">
+				 <div class="inner_content clearfix">
+					<div class="product_image">
+						<img src="../images/{{book.book_ISBN}}.jpg" alt=""/>
+					</div>
+              <div class="price">
+					   <div class="cart-left">
+							<p class="title">{{ book.book_title }}</p>
+							<div class="price1">
+							  <!--span class="actual">{{ book.author }}</span-->    
+  						  <span class="actual">Return Date: {{ book.return_date }}</span>
+							</div>
+						</div>
+						<div class="clear"></div>
+					 </div>				
+                   </div>
+                   </a>
+				</div>
+        {% endfor %}
+
+				<div class="clear"></div>
+			</div>	
+     </div>
+	 </div>
+{% endblock %}  	
